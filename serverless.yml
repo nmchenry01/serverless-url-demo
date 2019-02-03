@@ -1,0 +1,41 @@
+service: serverless-url-demo
+
+custom:
+   tableThroughput: 5
+   stage: ${opt:stage, self:provider.stage}
+   tableName: ${self:service}-${opt:stage, self:provider.stage}
+
+provider:
+   name: aws
+   runtime: nodejs8.10
+
+functions:
+   main:
+      handler: src/main/index.main
+      events:
+         - http:
+            path: /
+            method: get
+      memorySize: 256
+      timeout: 3
+   create:
+      handler: src/create/index.create
+      role: CreateLambdaRole
+      events:
+         - http:
+            path: /create
+            method: post
+      memorySize: 256
+      timeout: 3
+   redirect:
+      handler: src/redirect/index.redirect
+      events:
+         - http:
+            path: /{slug}
+            method: get
+      memorySize: 256
+      timeout: 3
+
+resources:
+   - ${file(./resources/dynamoDb.yml)}
+   - ${file(./resources/createIamRole.yml)}
