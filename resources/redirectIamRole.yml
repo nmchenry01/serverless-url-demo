@@ -1,8 +1,8 @@
 Resources:
-  CreateLambdaRole:
+  RedirectLambdaRole:
     Type: AWS::IAM::Role
     Properties:
-      RoleName: CreateLambdaRole
+      RoleName: RedirectLambdaRole
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -11,15 +11,15 @@ Resources:
               Service:
                 - lambda.amazonaws.com
             Action: sts:AssumeRole
-      ManagedPolicyArns: 
+      ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
       Policies:
-        - PolicyName: CreateLambdaPolicy
+        - PolicyName: RedirectLambdaPolicy
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
               - Effect: Allow
                 Action:
-                  - dynamodb:PutItem
+                  - dynamodb:GetItem
                 Resource:
                   - Fn::GetAtt: [LinkTable, Arn]

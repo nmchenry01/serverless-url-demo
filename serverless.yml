@@ -29,6 +29,7 @@ functions:
       timeout: 3
    redirect:
       handler: src/redirect/index.redirect
+      role: RedirectLambdaRole
       events:
          - http:
             path: /{slug}
@@ -39,3 +40,4 @@ functions:
 resources:
    - ${file(./resources/dynamoDb.yml)}
    - ${file(./resources/createIamRole.yml)}
+   - ${file(./resources/redirectIamRole.yml)}

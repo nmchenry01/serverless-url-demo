@@ -130,7 +130,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549236425961-2019-02-03T23:27:05.961Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-main",
               "Handler": "src/main/index.main",
@@ -149,14 +149,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "MainLambdaVersionXLPHa4IykLtqVT0q5IU99ejXNDdI5tPzkslr1N4wE": {
+          "MainLambdaVersionbKXt1eaRB0c596EwRyULcwYoE2W3EiuEH5A6tRHsY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "l2teNAlM6eP+5jBOq4Z4t9q8K4yulHKw6V7ZyvFKkaY="
+              "CodeSha256": "3SnBqMnpozNFUk6u2ZNk8VH8RSfbYN7ci+h0tWDdaNA="
             }
           },
           "CreateLambdaFunction": {
@@ -166,7 +166,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549236425961-2019-02-03T23:27:05.961Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-create",
               "Handler": "src/create/index.create",
@@ -185,14 +185,14 @@
               "CreateLambdaRole"
             ]
           },
-          "CreateLambdaVersionJoxqUXccxT3Yq8mKAVfo5eTGUTYy115y3RxeqJSGE4": {
+          "CreateLambdaVersiondOplEddWWgowVa4jxjN8LGTtmLNIUpVXfQTZvBBBY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateLambdaFunction"
               },
-              "CodeSha256": "l2teNAlM6eP+5jBOq4Z4t9q8K4yulHKw6V7ZyvFKkaY="
+              "CodeSha256": "3SnBqMnpozNFUk6u2ZNk8VH8RSfbYN7ci+h0tWDdaNA="
             }
           },
           "RedirectLambdaFunction": {
@@ -202,14 +202,14 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549236425961-2019-02-03T23:27:05.961Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-redirect",
               "Handler": "src/redirect/index.redirect",
               "MemorySize": 256,
               "Role": {
                 "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
+                  "RedirectLambdaRole",
                   "Arn"
                 ]
               },
@@ -218,17 +218,17 @@
             },
             "DependsOn": [
               "RedirectLogGroup",
-              "IamRoleLambdaExecution"
+              "RedirectLambdaRole"
             ]
           },
-          "RedirectLambdaVersiong8ZI0NOQidN0Kv1Oa6mWTcY5KFmUcq4WpL8C8m0s": {
+          "RedirectLambdaVersionBEepnRQXbmREWRxsWtxQ9FAtDSbDskK0qUQJ8R6opA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RedirectLambdaFunction"
               },
-              "CodeSha256": "l2teNAlM6eP+5jBOq4Z4t9q8K4yulHKw6V7ZyvFKkaY="
+              "CodeSha256": "3SnBqMnpozNFUk6u2ZNk8VH8RSfbYN7ci+h0tWDdaNA="
             }
           },
           "ApiGatewayRestApi": {
@@ -404,7 +404,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1549236425973": {
+          "ApiGatewayDeployment1549237703720": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -599,6 +599,9 @@
                   }
                 ]
               },
+              "ManagedPolicyArns": [
+                "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ],
               "Policies": [
                 {
                   "PolicyName": "CreateLambdaPolicy",
@@ -609,6 +612,53 @@
                         "Effect": "Allow",
                         "Action": [
                           "dynamodb:PutItem"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::GetAtt": [
+                              "LinkTable",
+                              "Arn"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "RedirectLambdaRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "RoleName": "RedirectLambdaRole",
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": [
+                        "lambda.amazonaws.com"
+                      ]
+                    },
+                    "Action": "sts:AssumeRole"
+                  }
+                ]
+              },
+              "ManagedPolicyArns": [
+                "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ],
+              "Policies": [
+                {
+                  "PolicyName": "RedirectLambdaPolicy",
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "dynamodb:GetItem"
                         ],
                         "Resource": [
                           {
@@ -635,19 +685,19 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersionXLPHa4IykLtqVT0q5IU99ejXNDdI5tPzkslr1N4wE"
+              "Ref": "MainLambdaVersionbKXt1eaRB0c596EwRyULcwYoE2W3EiuEH5A6tRHsY"
             }
           },
           "CreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateLambdaVersionJoxqUXccxT3Yq8mKAVfo5eTGUTYy115y3RxeqJSGE4"
+              "Ref": "CreateLambdaVersiondOplEddWWgowVa4jxjN8LGTtmLNIUpVXfQTZvBBBY"
             }
           },
           "RedirectLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RedirectLambdaVersiong8ZI0NOQidN0Kv1Oa6mWTcY5KFmUcq4WpL8C8m0s"
+              "Ref": "RedirectLambdaVersionBEepnRQXbmREWRxsWtxQ9FAtDSbDskK0qUQJ8R6opA"
             }
           },
           "ServiceEndpoint": {
@@ -737,6 +787,7 @@
       },
       "redirect": {
         "handler": "src/redirect/index.redirect",
+        "role": "RedirectLambdaRole",
         "events": [
           {
             "http": {
@@ -797,6 +848,9 @@
                 }
               ]
             },
+            "ManagedPolicyArns": [
+              "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+            ],
             "Policies": [
               {
                 "PolicyName": "CreateLambdaPolicy",
@@ -822,6 +876,53 @@
               }
             ]
           }
+        },
+        "RedirectLambdaRole": {
+          "Type": "AWS::IAM::Role",
+          "Properties": {
+            "RoleName": "RedirectLambdaRole",
+            "AssumeRolePolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Principal": {
+                    "Service": [
+                      "lambda.amazonaws.com"
+                    ]
+                  },
+                  "Action": "sts:AssumeRole"
+                }
+              ]
+            },
+            "ManagedPolicyArns": [
+              "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+            ],
+            "Policies": [
+              {
+                "PolicyName": "RedirectLambdaPolicy",
+                "PolicyDocument": {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Action": [
+                        "dynamodb:GetItem"
+                      ],
+                      "Resource": [
+                        {
+                          "Fn::GetAtt": [
+                            "LinkTable",
+                            "Arn"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         }
       },
       "Outputs": {}
@@ -830,7 +931,7 @@
     "artifact": "/Users/nicholasmchenry/Projects/serverless-url-demo/.serverless/serverless-url-demo.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-url-demo/dev/1549236425961-2019-02-03T23:27:05.961Z",
+    "artifactDirectoryName": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z",
     "artifact": "serverless-url-demo.zip"
   }
 }
