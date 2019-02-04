@@ -116,7 +116,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-url-demo/dev/1549245366608-2019-02-04T01:56:06.608Z/serverless-url-demo.zip"
+          "S3Key": "serverless/serverless-url-demo/dev/1549246419017-2019-02-04T02:13:39.017Z/serverless-url-demo.zip"
         },
         "FunctionName": "serverless-url-demo-dev-main",
         "Handler": "src/main/index.handler",
@@ -135,14 +135,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "MainLambdaVersionzLjO0Z8sqCrZORH4uZElRJVVvHIfSLfEhZxwc3Gg8P0": {
+    "MainLambdaVersionIaS2tkXqhz0ITyLMcpp2V2lkktNQMYCX2Jr7bZVA2jw": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "MainLambdaFunction"
         },
-        "CodeSha256": "Pqn4attYxfsZCpH0JAWr8yFMUGX6do0Hto453nR+xm0="
+        "CodeSha256": "laPsAkDWPrcSVwS0LrU8mdZmDGposzNukw6lSzpLnGM="
       }
     },
     "CreateLambdaFunction": {
@@ -152,7 +152,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-url-demo/dev/1549245366608-2019-02-04T01:56:06.608Z/serverless-url-demo.zip"
+          "S3Key": "serverless/serverless-url-demo/dev/1549246419017-2019-02-04T02:13:39.017Z/serverless-url-demo.zip"
         },
         "FunctionName": "serverless-url-demo-dev-create",
         "Handler": "src/create/index.create",
@@ -171,14 +171,14 @@
         "CreateLambdaRole"
       ]
     },
-    "CreateLambdaVersiondc98560sLAhFrtRidtEm7jYUMOQVibreQOiZMaIyg": {
+    "CreateLambdaVersionyZ8XzkRsfbYvV1SxhlkN6QqTJqhE6naMp98tKrICQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateLambdaFunction"
         },
-        "CodeSha256": "Pqn4attYxfsZCpH0JAWr8yFMUGX6do0Hto453nR+xm0="
+        "CodeSha256": "laPsAkDWPrcSVwS0LrU8mdZmDGposzNukw6lSzpLnGM="
       }
     },
     "RedirectLambdaFunction": {
@@ -188,7 +188,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverless-url-demo/dev/1549245366608-2019-02-04T01:56:06.608Z/serverless-url-demo.zip"
+          "S3Key": "serverless/serverless-url-demo/dev/1549246419017-2019-02-04T02:13:39.017Z/serverless-url-demo.zip"
         },
         "FunctionName": "serverless-url-demo-dev-redirect",
         "Handler": "src/redirect/index.redirect",
@@ -207,14 +207,14 @@
         "RedirectLambdaRole"
       ]
     },
-    "RedirectLambdaVersionuge6MWPw7QuG1zPVKyZsv7GT5i6aEapiyckuedq7Ag": {
+    "RedirectLambdaVersionnsS8QrliNTJzdy6VWK0zkphGg8NjnO2nYOBDrkM91s": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "RedirectLambdaFunction"
         },
-        "CodeSha256": "Pqn4attYxfsZCpH0JAWr8yFMUGX6do0Hto453nR+xm0="
+        "CodeSha256": "laPsAkDWPrcSVwS0LrU8mdZmDGposzNukw6lSzpLnGM="
       }
     },
     "ApiGatewayRestApi": {
@@ -390,7 +390,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1549245366623": {
+    "ApiGatewayDeployment1549246419029": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -671,19 +671,19 @@
     "MainLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "MainLambdaVersionzLjO0Z8sqCrZORH4uZElRJVVvHIfSLfEhZxwc3Gg8P0"
+        "Ref": "MainLambdaVersionIaS2tkXqhz0ITyLMcpp2V2lkktNQMYCX2Jr7bZVA2jw"
       }
     },
     "CreateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateLambdaVersiondc98560sLAhFrtRidtEm7jYUMOQVibreQOiZMaIyg"
+        "Ref": "CreateLambdaVersionyZ8XzkRsfbYvV1SxhlkN6QqTJqhE6naMp98tKrICQ"
       }
     },
     "RedirectLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "RedirectLambdaVersionuge6MWPw7QuG1zPVKyZsv7GT5i6aEapiyckuedq7Ag"
+        "Ref": "RedirectLambdaVersionnsS8QrliNTJzdy6VWK0zkphGg8NjnO2nYOBDrkM91s"
       }
     },
     "ServiceEndpoint": {
