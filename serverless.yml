@@ -19,7 +19,7 @@ functions:
       memorySize: 256
       timeout: 3
    create:
-      handler: src/create/index.create
+      handler: src/create/index.handler
       role: CreateLambdaRole
       events:
          - http:
@@ -28,7 +28,7 @@ functions:
       memorySize: 256
       timeout: 3
    redirect:
-      handler: src/redirect/index.redirect
+      handler: src/redirect/index.handler
       role: RedirectLambdaRole
       events:
          - http:

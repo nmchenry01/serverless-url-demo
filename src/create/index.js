@@ -9,7 +9,7 @@ const { validateUrl } = require("./helpers/validateUrl");
 const dynamodb = new AWS.DynamoDB();
 const DYNAMO_TABLE = "serverless-url-demo-dev";
 
-exports.create = async event => {
+exports.handler = async event => {
   console.info("Received event:", JSON.stringify(event, null, 2));
 
   // Parse the referring website
