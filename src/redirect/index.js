@@ -1,6 +1,6 @@
 
 exports.redirect = async (event, context) => {
-  console.log("Received event:", JSON.stringify(event, null, 2));
+  console.info("Received event:", JSON.stringify(event, null, 2));
   const slug = event.pathParameters.slug;
   const redirectTarget = "https://www.google.com";
   const response = {

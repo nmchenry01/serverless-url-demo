@@ -130,7 +130,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549242374623-2019-02-04T01:06:14.623Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549245366608-2019-02-04T01:56:06.608Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-main",
               "Handler": "src/main/index.handler",
@@ -149,14 +149,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "MainLambdaVersioniWYvVg3kgXVfFOLfi949s5G79TDQAmWSuPeGfrGQ": {
+          "MainLambdaVersionzLjO0Z8sqCrZORH4uZElRJVVvHIfSLfEhZxwc3Gg8P0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "teboGPvNy5hil4H4loMFPNEPa4rV6R4NSo+u+r5+/Y8="
+              "CodeSha256": "Pqn4attYxfsZCpH0JAWr8yFMUGX6do0Hto453nR+xm0="
             }
           },
           "CreateLambdaFunction": {
@@ -166,7 +166,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549242374623-2019-02-04T01:06:14.623Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549245366608-2019-02-04T01:56:06.608Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-create",
               "Handler": "src/create/index.create",
@@ -185,14 +185,14 @@
               "CreateLambdaRole"
             ]
           },
-          "CreateLambdaVersionfem8arAnOQ9s1uGR2xt9nMc3NvUfXwmVF6zXlZF07D4": {
+          "CreateLambdaVersiondc98560sLAhFrtRidtEm7jYUMOQVibreQOiZMaIyg": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateLambdaFunction"
               },
-              "CodeSha256": "teboGPvNy5hil4H4loMFPNEPa4rV6R4NSo+u+r5+/Y8="
+              "CodeSha256": "Pqn4attYxfsZCpH0JAWr8yFMUGX6do0Hto453nR+xm0="
             }
           },
           "RedirectLambdaFunction": {
@@ -202,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549242374623-2019-02-04T01:06:14.623Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549245366608-2019-02-04T01:56:06.608Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-redirect",
               "Handler": "src/redirect/index.redirect",
@@ -221,14 +221,14 @@
               "RedirectLambdaRole"
             ]
           },
-          "RedirectLambdaVersionhznFHgP1SWWgsidbxLo8zzRbNtb9SVv7uHcYYn2LU": {
+          "RedirectLambdaVersionuge6MWPw7QuG1zPVKyZsv7GT5i6aEapiyckuedq7Ag": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RedirectLambdaFunction"
               },
-              "CodeSha256": "teboGPvNy5hil4H4loMFPNEPa4rV6R4NSo+u+r5+/Y8="
+              "CodeSha256": "Pqn4attYxfsZCpH0JAWr8yFMUGX6do0Hto453nR+xm0="
             }
           },
           "ApiGatewayRestApi": {
@@ -404,7 +404,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1549242374634": {
+          "ApiGatewayDeployment1549245366623": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -576,8 +576,8 @@
                 }
               ],
               "ProvisionedThroughput": {
-                "ReadCapacityUnits": 5,
-                "WriteCapacityUnits": 5
+                "ReadCapacityUnits": 2,
+                "WriteCapacityUnits": 2
               }
             }
           },
@@ -685,19 +685,19 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersioniWYvVg3kgXVfFOLfi949s5G79TDQAmWSuPeGfrGQ"
+              "Ref": "MainLambdaVersionzLjO0Z8sqCrZORH4uZElRJVVvHIfSLfEhZxwc3Gg8P0"
             }
           },
           "CreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateLambdaVersionfem8arAnOQ9s1uGR2xt9nMc3NvUfXwmVF6zXlZF07D4"
+              "Ref": "CreateLambdaVersiondc98560sLAhFrtRidtEm7jYUMOQVibreQOiZMaIyg"
             }
           },
           "RedirectLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RedirectLambdaVersionhznFHgP1SWWgsidbxLo8zzRbNtb9SVv7uHcYYn2LU"
+              "Ref": "RedirectLambdaVersionuge6MWPw7QuG1zPVKyZsv7GT5i6aEapiyckuedq7Ag"
             }
           },
           "ServiceEndpoint": {
@@ -740,7 +740,7 @@
       "vpc": {}
     },
     "custom": {
-      "tableThroughput": 5,
+      "tableThroughput": 2,
       "stage": "dev",
       "tableName": "serverless-url-demo-dev"
     },
@@ -825,8 +825,8 @@
               }
             ],
             "ProvisionedThroughput": {
-              "ReadCapacityUnits": 5,
-              "WriteCapacityUnits": 5
+              "ReadCapacityUnits": 2,
+              "WriteCapacityUnits": 2
             }
           }
         },
@@ -931,7 +931,7 @@
     "artifact": "/Users/nicholasmchenry/Projects/serverless-url-demo/.serverless/serverless-url-demo.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-url-demo/dev/1549242374623-2019-02-04T01:06:14.623Z",
+    "artifactDirectoryName": "serverless/serverless-url-demo/dev/1549245366608-2019-02-04T01:56:06.608Z",
     "artifact": "serverless-url-demo.zip"
   }
 }

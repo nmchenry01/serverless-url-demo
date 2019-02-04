@@ -1,7 +1,7 @@
 service: serverless-url-demo
 
 custom:
-   tableThroughput: 5
+   tableThroughput: 2
    stage: ${opt:stage, self:provider.stage}
    tableName: ${self:service}-${opt:stage, self:provider.stage}
 
