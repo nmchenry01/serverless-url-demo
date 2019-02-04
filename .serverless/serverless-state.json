@@ -130,10 +130,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549238323442-2019-02-03T23:58:43.442Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-main",
-              "Handler": "src/main/index.main",
+              "Handler": "src/main/index.handler",
               "MemorySize": 256,
               "Role": {
                 "Fn::GetAtt": [
@@ -149,14 +149,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "MainLambdaVersionbKXt1eaRB0c596EwRyULcwYoE2W3EiuEH5A6tRHsY": {
+          "MainLambdaVersionTiT48vQaUntfD7bNB6GkvY949ARsEjcB54EjsZQSI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MainLambdaFunction"
               },
-              "CodeSha256": "3SnBqMnpozNFUk6u2ZNk8VH8RSfbYN7ci+h0tWDdaNA="
+              "CodeSha256": "lfmsgd3nCCzqtGHGsRyPblXRzdDxlplLQ3Ixmlfh7m0="
             }
           },
           "CreateLambdaFunction": {
@@ -166,7 +166,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549238323442-2019-02-03T23:58:43.442Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-create",
               "Handler": "src/create/index.create",
@@ -185,14 +185,14 @@
               "CreateLambdaRole"
             ]
           },
-          "CreateLambdaVersiondOplEddWWgowVa4jxjN8LGTtmLNIUpVXfQTZvBBBY": {
+          "CreateLambdaVersionWBBWR2DPCFATz7x7UQ656XW65FROBUO7fv617ZmyFM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateLambdaFunction"
               },
-              "CodeSha256": "3SnBqMnpozNFUk6u2ZNk8VH8RSfbYN7ci+h0tWDdaNA="
+              "CodeSha256": "lfmsgd3nCCzqtGHGsRyPblXRzdDxlplLQ3Ixmlfh7m0="
             }
           },
           "RedirectLambdaFunction": {
@@ -202,7 +202,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z/serverless-url-demo.zip"
+                "S3Key": "serverless/serverless-url-demo/dev/1549238323442-2019-02-03T23:58:43.442Z/serverless-url-demo.zip"
               },
               "FunctionName": "serverless-url-demo-dev-redirect",
               "Handler": "src/redirect/index.redirect",
@@ -221,14 +221,14 @@
               "RedirectLambdaRole"
             ]
           },
-          "RedirectLambdaVersionBEepnRQXbmREWRxsWtxQ9FAtDSbDskK0qUQJ8R6opA": {
+          "RedirectLambdaVersiono5T3WaDEGcJ0xaDgVp2fl4yKHgrOqKYF3oMRYsCs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "RedirectLambdaFunction"
               },
-              "CodeSha256": "3SnBqMnpozNFUk6u2ZNk8VH8RSfbYN7ci+h0tWDdaNA="
+              "CodeSha256": "lfmsgd3nCCzqtGHGsRyPblXRzdDxlplLQ3Ixmlfh7m0="
             }
           },
           "ApiGatewayRestApi": {
@@ -404,7 +404,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1549237703720": {
+          "ApiGatewayDeployment1549238323452": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -685,19 +685,19 @@
           "MainLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MainLambdaVersionbKXt1eaRB0c596EwRyULcwYoE2W3EiuEH5A6tRHsY"
+              "Ref": "MainLambdaVersionTiT48vQaUntfD7bNB6GkvY949ARsEjcB54EjsZQSI"
             }
           },
           "CreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateLambdaVersiondOplEddWWgowVa4jxjN8LGTtmLNIUpVXfQTZvBBBY"
+              "Ref": "CreateLambdaVersionWBBWR2DPCFATz7x7UQ656XW65FROBUO7fv617ZmyFM"
             }
           },
           "RedirectLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "RedirectLambdaVersionBEepnRQXbmREWRxsWtxQ9FAtDSbDskK0qUQJ8R6opA"
+              "Ref": "RedirectLambdaVersiono5T3WaDEGcJ0xaDgVp2fl4yKHgrOqKYF3oMRYsCs"
             }
           },
           "ServiceEndpoint": {
@@ -747,7 +747,7 @@
     "pluginsData": {},
     "functions": {
       "main": {
-        "handler": "src/main/index.main",
+        "handler": "src/main/index.handler",
         "events": [
           {
             "http": {
@@ -931,7 +931,7 @@
     "artifact": "/Users/nicholasmchenry/Projects/serverless-url-demo/.serverless/serverless-url-demo.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-url-demo/dev/1549237703708-2019-02-03T23:48:23.708Z",
+    "artifactDirectoryName": "serverless/serverless-url-demo/dev/1549238323442-2019-02-03T23:58:43.442Z",
     "artifact": "serverless-url-demo.zip"
   }
 }

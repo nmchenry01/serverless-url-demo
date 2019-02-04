@@ -1,3 +1,4 @@
+const mainPage = `
 <html>
   <body>
     <h1>
@@ -12,3 +13,6 @@
     </form>
   </body>
 </html>
+`;
+
+module.exports = { mainPage };

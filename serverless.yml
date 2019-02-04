@@ -11,7 +11,7 @@ provider:
 
 functions:
    main:
-      handler: src/main/index.main
+      handler: src/main/index.handler
       events:
          - http:
             path: /

@@ -1,12 +1,11 @@
-const fs = require("fs");
+const { mainPage } = require("./templates/main");
 
-exports.main = async (event, context) => {
+exports.handler = async (event, context) => {
   console.log("Received event:", JSON.stringify(event, null, 2));
-  const basePage = fs.readFileSync(__dirname + "/templates/main.html").toString();
-  console.log(`This is the HTML : ${basePage}`);
+  console.log(`This is the HTML : ${mainPage}`);
   const response = {
     statusCode: 200,
-    body: basePage,
+    body: mainPage,
     headers: { "Content-Type": "text/html" }
   };
   return response;
